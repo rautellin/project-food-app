@@ -27,6 +27,7 @@ export const Restaurants = (props) => {
           // eslint-disable-next-line implicit-arrow-linebreak
           <>
             <article key={index}>
+              <img src={restaurant.restaurant.featured_image} alt="" />
               <h2>{restaurant.restaurant.name}</h2>
               {restaurant.restaurant.currency === 'Rs.' && <p>Average cost (2 people): {(Math.round(restaurant.restaurant.average_cost_for_two * 0.013 * 100) / 100).toFixed(2)} $</p>}
               {restaurant.restaurant.currency === '$' && <p>Average cost (2 people): {(Math.round(restaurant.restaurant.average_cost_for_two * 100) / 100).toFixed(2)} $</p>}
