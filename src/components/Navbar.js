@@ -1,26 +1,27 @@
-import React from 'react'
+/* eslint-disable max-len */
+import React, { useState } from 'react'
+import { Checkbox } from './Checkbox'
+import { SortByPrice } from './SortByPrice'
+import { SortByRating } from './SortByRating'
 
 export const Navbar = () => {
+  const [homeDelivery, setHomeDelivery] = useState(false)
+  const [tableBooking, setTableBooking] = useState(false)
+  const [sortByPrice, setSortByPrice] = useState('none')
+  const [sortByRating, setSortByRating] = useState('none')
+
+  const handleSubmit = (event) => {
+    event.preventDefault()
+  }
+
   return (
     <>
       <nav>
-        <form action="">
-          <select>
-            <option value="" selected>Sort by price</option>
-            <option value="ascending">Ascending (low to high)</option>
-            <option value="descending">Descending (high to low)</option>
-          </select>
-        </form>
-        <form action="">
-          <select>
-            <option value="" selected>Sort by rating</option>
-            <option value="ascending">Ascending (low to high)</option>
-            <option value="descending">Descending (high to low)</option>
-          </select>
-        </form>
-        <form action="">
-          <label htmlFor="home">Home delivery<input type="checkbox" name="delivery" id="home" value="home" /></label>
-          <label htmlFor="table">Table booking<input type="checkbox" name="delivery" id="table" value="table" /></label>
+        <form action="" onSubmit={handleSubmit}>
+          <SortByRating sortByRating={sortByRating} setSortByRating={setSortByRating} />
+          <SortByPrice sortByPrice={sortByPrice} setSortByPrice={setSortByPrice} />
+          <Checkbox homeDelivery={homeDelivery} setHomeDelivery={setHomeDelivery} tableBooking={tableBooking} setTableBooking={setTableBooking} />
+          <button type="submit">Submit</button>
         </form>
       </nav>
     </>

@@ -10,7 +10,7 @@ export const App = () => {
       <header>
         <h1>Chinese in <span>Las Vegas</span></h1>
       </header>
-      <Navbar />
+      <Navbar restaurants={restaurants} setRestaurants={setRestaurants} />
       <Restaurants restaurants={restaurants} setRestaurants={setRestaurants} />
     </>
   )
